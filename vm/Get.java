@@ -1,7 +1,5 @@
 package vm;
 
-import model.Datatype;
-import model.String;
 import model.Variable;
 
 /**

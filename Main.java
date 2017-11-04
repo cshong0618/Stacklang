@@ -1,12 +1,6 @@
 import model.Integer;
-import model.String;
 import model.Variable;
-import vm.Add;
-import vm.Get;
-import vm.InstructionStack;
-import vm.Load;
-
-import java.util.stream.IntStream;
+import vm.*;
 
 /**
  * Created by shaong on 11/5/17.
@@ -19,13 +13,13 @@ class Main {
         Variable var1 = new Integer(10);
         Variable var2 = new Integer(20);
 
-        Load load_1 = new Load(var1);
-        Load load_2 = new Load(var2);
-        Add add = new Add();
-        Get get = new Get();
+        Instruction load_1 = new Load(var1);
+        Instruction load_2 = new Load(var2);
+        Instruction ops    = new Subtract();
+        Instruction get    = new Get();
 
         is.addInstruction(get);
-        is.addInstruction(add);
+        is.addInstruction(ops);
         is.addInstruction(load_1);
         is.addInstruction(load_2);
 

@@ -5,15 +5,14 @@ import model.Float;
 import model.Integer;
 import model.Long;
 import model.String;
-import model.*;
+import model.Variable;
 
 /**
  * Created by shaong on 11/5/17.
  */
 
-public class Add implements Instruction{
-    public Add() {
-    }
+public class Subtract implements Instruction {
+    public Subtract(){}
 
     @Override
     public Variable apply() {
@@ -22,11 +21,10 @@ public class Add implements Instruction{
 
         if(arg1.type == arg2.type) {
             switch (arg1.type) {
-                case INT: return (new Integer(((Integer)arg1).getValue() + ((Integer)arg2).getValue()));
-                case LONG: return (new Long(((Long)arg1).getValue() + ((Long)arg2).getValue()));
-                case FLOAT: return (new Float(((Float)arg1).getValue() + ((Float)arg2).getValue()));
-                case DOUBLE: return (new Double(((Double)arg1).getValue() + ((Double)arg2).getValue()));
-                case STRING: return (new String(((String)arg1).getValue() + ((String)arg2).getValue()));
+                case INT: return (new Integer(((Integer)arg1).getValue() - ((Integer)arg2).getValue()));
+                case LONG: return (new Long(((Long)arg1).getValue() - ((Long)arg2).getValue()));
+                case FLOAT: return (new Float(((Float)arg1).getValue() - ((Float)arg2).getValue()));
+                case DOUBLE: return (new Double(((Double)arg1).getValue() - ((Double)arg2).getValue()));
                 default: throw new UnsupportedOperationException("Invalid type");
             }
         } else {

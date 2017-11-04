@@ -1,10 +1,7 @@
 package vm;
 
-import model.Null;
 import model.Variable;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Stack;
 
 /**
