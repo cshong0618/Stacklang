@@ -19,10 +19,15 @@ public class Reserved {
     Map<String, Object> reserved = new HashMap<>();
 
     public static final class OPS {
+        // Memory
         public static final String LOAD = "load";
         public static final String GET = "get";
-        public static final String ADD = "add";
-        public static final String SUB = "sub";
+        public static final String STORE = ":=";
+        public static final String RETRIEVE = "<-";
+
+        // Arithmetic
+        public static final String ADD = "+";
+        public static final String SUB = "-";
     }
 
     private Reserved() {
@@ -30,6 +35,8 @@ public class Reserved {
                 // Load unload ops
                 OPS.LOAD,
                 OPS.GET,
+                OPS.STORE,
+                OPS.RETRIEVE,
 
                 // Math ops
                 OPS.ADD,

@@ -21,7 +21,7 @@ public class REPL {
             System.out.printf(">> ");
 
             input = scanner.nextLine();
-
+            if(input.equals("q")) break;
             try {
                 Read.getInstance().readLine(input);
                 Evaluate.getInstance().evaluateLine();

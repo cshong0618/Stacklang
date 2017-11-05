@@ -22,12 +22,16 @@ public class Process {
 
     private Process() {}
 
-    public Variable processLine() {
+    public Variable processLine() throws Exception{
         List<String> line = Evaluate.getInstance().getTokens();
         InstructionStack is = InstructionStack.getInstance();
         Reserved r = Reserved.getInstance();
 
+        String prev = "";
         for(String s : line) {
+            if(prev.equals(Reserved.OPS.STORE) || prev.equals(Reserved.OPS.RETRIEVE)) {
+                s = "\"" + s + "\"";
+            }
             if(r.isKeyword(s)) {
                 switch (s) {
                     case Reserved.OPS.LOAD: {
@@ -51,24 +55,46 @@ public class Process {
                         break;
 
                     }
+
+                    case Reserved.OPS.STORE: {
+                        is.addInstruction(new Store());
+                        break;
+                    }
+
+                    case Reserved.OPS.RETRIEVE: {
+                        is.addInstruction(new Retrieve());
+                        break;
+                    }
                 }
             } else {
                 // Evaluate typeof s
                 Variable var = null;
 
                 if(s.contains("\"")) {
+                    s = s.substring(1, s.length() - 1);
                     var = new model.String(s);
                 } else {
                     try {
                         double d = Double.parseDouble(s);
-                        var = new model.Double(d);
+
+                        if(Math.ceil(d) == d) {
+                            if(s.contains(".")) {
+                                var = new model.Double(d);
+                            } else {
+                                var = new model.Integer((int) d);
+                            }
+                        } else {
+                            var = new model.Double(d);
+                        }
                     } catch (NumberFormatException nfe) {
-                        throw nfe;
+                        throw new Exception("Cannot parse");
                     }
                 }
 
                 is.addInstruction(new Load(var));
             }
+
+            prev = s;
         }
 
         Variable o = null;
