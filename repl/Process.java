@@ -50,6 +50,11 @@ public class Process {
 
                     }
 
+                    case Reserved.OPS.MUL: {
+                        is.addInstruction(new Multiply());
+                        break;
+                    }
+
                     case Reserved.OPS.GET: {
                         is.addInstruction(new Get());
                         break;

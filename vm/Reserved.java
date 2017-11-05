@@ -28,6 +28,7 @@ public class Reserved {
         // Arithmetic
         public static final String ADD = "+";
         public static final String SUB = "-";
+        public static final String MUL = "*";
     }
 
     private Reserved() {
@@ -41,6 +42,7 @@ public class Reserved {
                 // Math ops
                 OPS.ADD,
                 OPS.SUB,
+                OPS.MUL,
         };
 
         Arrays.stream(insts).forEach((s)->{

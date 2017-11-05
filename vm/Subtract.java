@@ -1,11 +1,11 @@
 package vm;
 
+import model.*;
 import model.Double;
 import model.Float;
 import model.Integer;
 import model.Long;
 import model.String;
-import model.Variable;
 
 /**
  * Created by shaong on 11/5/17.
@@ -27,6 +27,10 @@ public class Subtract implements Instruction {
                 case DOUBLE: return (new Double(((Double)arg1).getValue() - ((Double)arg2).getValue()));
                 default: throw new UnsupportedOperationException("Invalid type");
             }
+        } else if(arg1.type != Datatype.STRING && arg2.type != Datatype.STRING) {
+            double _1 = ReturnCommon.value(arg1), _2 = ReturnCommon.value(arg2);
+            return new Double(_1 - _2);
+
         } else {
             throw new IllegalArgumentException("arg1 and arg2 are of different types");
         }
