@@ -1,5 +1,7 @@
 package model;
 
+import java.lang.String;
+
 /**
  * Created by shaong on 11/5/17.
  */
@@ -21,5 +23,10 @@ public class Boolean extends Variable{
 
     public void setValue(boolean value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "" + value;
     }
 }

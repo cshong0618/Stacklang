@@ -1,5 +1,7 @@
 package model;
 
+import java.lang.String;
+
 /**
  * Created by shaong on 11/5/17.
  */
@@ -22,5 +24,10 @@ public class Long extends Variable{
 
     public void setValue(long value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "" + value;
     }
 }

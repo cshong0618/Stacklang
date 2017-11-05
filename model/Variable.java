@@ -10,4 +10,6 @@ public abstract class Variable {
     public Variable(Datatype type) {
         this.type = type;
     }
+
+    public abstract java.lang.String toString();
 }

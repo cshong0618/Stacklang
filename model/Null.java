@@ -1,5 +1,7 @@
 package model;
 
+import java.lang.String;
+
 /**
  * Created by shaong on 11/5/17.
  */
@@ -7,6 +9,11 @@ package model;
 public class Null extends Variable {
     public Null(Datatype type) {
         super(type);
+    }
+
+    @Override
+    public String toString() {
+        return "NULL";
     }
 
     public Null() {

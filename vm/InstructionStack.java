@@ -9,9 +9,16 @@ import java.util.Stack;
  */
 
 public class InstructionStack {
+    private static InstructionStack is = null;
+
+    public static InstructionStack getInstance() {
+        if(is == null) is = new InstructionStack();
+        return is;
+    }
+
     private Stack<Instruction> instructions;
 
-    public InstructionStack() {
+    private InstructionStack() {
         instructions = new Stack<>();
     }
 

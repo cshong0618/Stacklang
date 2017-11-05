@@ -1,5 +1,6 @@
 import model.Integer;
 import model.Variable;
+import repl.REPL;
 import vm.*;
 
 /**
@@ -8,6 +9,7 @@ import vm.*;
 
 class Main {
     public static void main(java.lang.String[] args) {
+        /*
         InstructionStack is = new InstructionStack();
 
         Variable var1 = new Integer(10);
@@ -30,6 +32,10 @@ class Main {
                 System.out.println(((Integer)o).getValue());
             }
         }
+        */
+
+        REPL repl = new REPL();
+        repl.run();
     }
 
 }

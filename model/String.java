@@ -23,4 +23,9 @@ public class String extends Variable {
     public void setValue(java.lang.String value) {
         this.value = value;
     }
+
+    @Override
+    public java.lang.String toString() {
+        return value;
+    }
 }
